@@ -1,0 +1,36 @@
+import React, { useState, useEffect } from 'react';
+import Item from "./Item"
+import "../../styles/style.css";
+
+export default function List(props) {
+
+    const UI = (attr) => {
+        return (
+            <div className="row">
+                {
+                  (props.filterFunc(attr, props.list).length != 0) ? 
+                  <div className="page">
+                      <h1 className="pageTitle page-head" style={{marginRight: "1%",   textDecoration: "underline"}}>{attr}</h1>
+                      <div style={{ marginRight: '-1%'}}>
+                      {
+                        props.filterFunc(attr, props.list).map((item, i) => {
+                            return (
+                                <Item key={i} data={item} ua={props.ua}></Item>
+                            )
+                        })
+                      }
+                      </div>
+                  </div> : ''
+                }
+            </div>
+        )
+    }
+
+    return (
+        <div>
+            {
+               props.filterBy.map(attr => UI(attr))
+            }
+        </div>
+    )
+}

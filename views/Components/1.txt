@@ -1,0 +1,3 @@
+                        <a title="ווטסאפ" href={props.data.gsx$whatsapp.$t == '' ? '' : "https://" + whatsappURL() + ".whatsapp.com/send?phone=+972" + props.data.gsx$whatsapp.$t} className="col-lg-3 col-md-3 col-xs-12 btn btn-social-icon btn-lg btn-instagram" style={{ backgroundColor: "#06d755" }}>
+                            <span className="fa fa-fw fa-whatsapp"></span>
+                        </a>

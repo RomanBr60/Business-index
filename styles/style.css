@@ -1,0 +1,158 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    text-align: right; 
+    letter-spacing: 1px;			
+    direction: rtl;
+}
+
+body{
+    background-image: url(https://png.pngtree.com/thumb_back/fh260/back_our/20190623/ourmid/pngtree-blue-geometric-business-minimalistic-business-card-background-image_237858.jpg);
+    background-size: cover;
+    box-sizing: border-box;
+    /*background-color: #4CAF50;*/
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    color: #777;
+}
+
+/*.App > * {
+    background-color: #282c34;
+}*/
+
+/*-----------------------------------------------------------------*/
+.page-header {
+    border-bottom: none;
+}
+
+.panel { 
+    /*box-shadow: 5px 10px 15px #666666;*/
+    /*box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);			*/
+    /*box-shadow: 4px 4px 8px gray;*/
+    border: 1px solid gray;
+    background-color: #F9F9F9;
+    margin-top: 5%;
+    border-radius: 0;
+    width: 100%;
+
+    -webkit-box-shadow: 0px 10px 5px #27272780;
+    -moz-box-shadow: 0px 10px 5px #27272780;
+
+}
+
+.panel:hover {
+    box-shadow: 6px 6px 10px black;           
+    border: 1px solid black;
+}
+
+.panel:focus {
+    border: 1px solid #ff0000;
+    background-color: #F9F9F9;
+}
+
+
+.title {
+    text-shadow: 1px 1px .5px black;
+    font-size: 29px;
+    font-weight: bold;
+    margin: auto;
+    padding: 0;
+}
+
+.pageTitle {
+    text-shadow: 1px 1px .5px black;
+    font-weight: bold;
+    padding: 0;
+}
+
+#pageDesc {
+    font-size: 130%;
+}
+
+img {
+    margin: 0 auto 0 auto;
+}
+
+.text {
+    height: 105px;
+}
+
+a {
+    font-size: large;
+}
+
+a > span {
+    padding-left: 1%;
+}
+
+
+i.fa {
+    border-left: 1px solid silver;
+    margin-right: 0;
+    margin-left: 2%;
+    padding-left: 1%;
+    font-size: 1.2em;
+}
+
+
+hr {
+    padding: 0;
+    margin: 1%;
+    border-top: 0.5px solid silver;
+}
+
+.fa-clock-o {
+    float: right;
+}
+
+.time > span {
+    margin-left: 0;
+}
+
+.time:hover {
+    text-decoration: none;
+}
+
+.btn-social-icon {
+    margin: 0 5% 0 6%;
+}
+
+#businessBox, #businessBox > * {
+    float: left;
+}
+
+div.jumbotron > p {
+    width: 60%;
+    margin-top: 1%;
+}
+
+@media screen and (max-width: 600px) {
+    .btn-social-icon {
+        margin: 0 4% 0 4%;
+    }
+
+    .row {
+        width: 99%;
+        margin: 0 1% 0 1%;
+    }
+    
+    .pageTitle { font-size: 200%; }
+    .text { height: 120px; }    
+    .title { font-size: 26.5px; }
+    
+    div.jumbotron > p {
+        width: 100%;
+        padding: 2%;
+    }
+}
