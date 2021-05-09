@@ -49,10 +49,8 @@ router.get('/:id', function(req, res) {
         let arr = data.feed.entry[id];
         res.render('./Components/Itemdata', { data: arr, ua: userAgent });
       })
-      .catch (e => {
-        console.log (e)
-        res.next()
-      })
+      .catch(err => res.status(404).json(err))
+
 });
 
 

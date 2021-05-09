@@ -32,6 +32,8 @@ body{
 }*/
 
 /*-----------------------------------------------------------------*/
+
+
 .page-header {
     border-bottom: none;
 }
@@ -129,8 +131,14 @@ hr {
 }
 
 #businessBox, #businessBox > * {
-    float: left;
+    text-align: right;
+    direction: rtl;
 }
+
+#businessBox, .container {
+    border: 2px solid red;
+}
+
 
 div.jumbotron > p {
     width: 60%;

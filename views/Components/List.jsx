@@ -10,8 +10,7 @@ export default function List(props) {
                 {
                   (props.filterFunc(attr, props.list).length != 0) ? 
                   <div className="page">
-                      <h1 className="pageTitle page-head" style={{marginRight: "1%",   textDecoration: "underline"}}>{attr}</h1>
-                      <div style={{ marginRight: '-1%'}}>
+                      <h1 className="pageTitle page-head" style={{marginRight: "1.5%",   textDecoration: "underline"}}>{attr}</h1>
                       {
                         props.filterFunc(attr, props.list).map((item, i) => {
                             return (
@@ -19,7 +18,6 @@ export default function List(props) {
                             )
                         })
                       }
-                      </div>
                   </div> : ''
                 }
             </div>
