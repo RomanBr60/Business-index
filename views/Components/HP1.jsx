@@ -97,33 +97,37 @@ export default function HomePage(props) {
                     <p>{text}</p>
                 </div>
 
-                <div>
+                <div id="searchUI">
                     <form onSubmit={handleSubmit}>
-                        <div className="input-group">
+                    <div className="input-group" style={{ width: '45%', direction: "ltr"}}>
+                            <input type="text" className="form-control" placeholder="חיפוש" name="חיפוש" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
                             <div className="input-group-btn">
                                 <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
                             </div>
-                            <input type="text" className="form-control" placeholder="חיפוש" name="חיפוש" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
                         </div>
                     </form>
-                </div>
+             
 
-                <div style={{ margin: "1% 0 -1% 0", padding: '0' }}>
-                    חיפוש לפי <select onChange={(e) => setK(e.target.value)}>
-                        <option value="0">הצג את כל העסקים ביחד</option>
-                        <option value="1">לפי סדר אלפבתי</option>
-                        <option value="2">לפי קטגוריות</option>
-                    </select>
+                    <div style={{ margin: "1% 0 -1% 0", padding: '0' }}>
+                        חיפוש לפי <select onChange={(e) => setK(e.target.value)}>
+                            <option value="0">הצג את כל העסקים ביחד</option>
+                            <option value="1">לפי סדר אלפבתי</option>
+                            <option value="2">לפי קטגוריות</option>
+                        </select>
+                    </div>
                 </div>
                 <br />
-                <div id="businessBox">
                 {
                     (list.length == 0) ? <h1 className="pageTitle">לא נמצאו עסקים</h1> :
-                    (k == 0) ? list.map((item, i) => { return <Item key={i} data={item} ua={props.ua} isLinkable={true}></Item> }) :
+                    (k == 0) ? 
+                        <div className="row ItemRow">
+                        {
+                            list.map((item, i) => { return <Item className="Item" key={i} data={item} ua={props.ua} isLinkable={true}></Item> })
+                        }</div> :
+                        
                         (k == 1) ? <List key={0} list={list} filterBy={("אבגדהוזחטיכלמנסעפצקרשת").split('')} filterFunc={filterAlphabiticaly} ua={props.ua}></List> :
                             (k == 2) ? <List key={1} list={list} filterBy={types.map(t => t.gsx$type.$t)} filterFunc={filterByType} ua={props.ua}></List> : ''
                 }
-                </div>
             </div>
         </React.Fragment>
         )

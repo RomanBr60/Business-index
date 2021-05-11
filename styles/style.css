@@ -130,13 +130,18 @@ hr {
     margin: 0 5% 0 6%;
 }
 
-#businessBox, #businessBox > * {
+.container > .row {
     text-align: right;
     direction: rtl;
 }
 
-#businessBox, .container {
+.container {
     border: 2px solid red;
+}
+
+.ItemRow, #searchUI {
+    width: 99%;
+    margin: 0 1% 0 1%;
 }
 
 
@@ -149,12 +154,7 @@ div.jumbotron > p {
     .btn-social-icon {
         margin: 0 4% 0 4%;
     }
-
-    .row {
-        width: 99%;
-        margin: 0 1% 0 1%;
-    }
-    
+   
     .pageTitle { font-size: 200%; }
     .text { height: 120px; }    
     .title { font-size: 26.5px; }

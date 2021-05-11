@@ -6,7 +6,7 @@ export default function List(props) {
 
     const UI = (attr) => {
         return (
-            <div className="row">
+            <div className="row ItemRow">
                 {
                   (props.filterFunc(attr, props.list).length != 0) ? 
                   <div className="page">
@@ -14,7 +14,7 @@ export default function List(props) {
                       {
                         props.filterFunc(attr, props.list).map((item, i) => {
                             return (
-                                <Item key={i} data={item} ua={props.ua}></Item>
+                                <Item key={i} className="Item" data={item} ua={props.ua}></Item>
                             )
                         })
                       }

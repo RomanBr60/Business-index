@@ -12,15 +12,7 @@ export default class extends Document {
     return (
       <html dir="rtl" lang="he">
         <Head>
-            <meta charset="utf-8" />
-            <meta name="mobile-web-app-capable" content="yes" />
-            <meta name="apple-mobile-web-app-capable" content="yes" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-            <meta name="viewport" content="width=device-width" />
-            <meta name="generator" content="slidify" />
-            <meta name="google" content="notranslate" />
-            <meta name="robots" content="follow, index" />
-    
+
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
             <title>אינקס עסקים</title>
