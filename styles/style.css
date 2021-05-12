@@ -127,12 +127,8 @@ hr {
 }
 
 .btn-social-icon {
-    margin: 0 5% 0 6%;
-}
-
-.container > .row {
-    text-align: right;
-    direction: rtl;
+    text-align: center;
+    margin: auto 5% auto 5%;
 }
 
 .container {
@@ -150,11 +146,18 @@ div.jumbotron > p {
     margin-top: 1%;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 387px) {
     .btn-social-icon {
-        margin: 0 4% 0 4%;
+        margin: auto 4% auto 4%;
+    }  
+
+    .buttonRow {
+        padding-left: 5%;
+        padding-right: 5%;
     }
-   
+}
+
+@media screen and (max-width: 700px) {
     .pageTitle { font-size: 200%; }
     .text { height: 120px; }    
     .title { font-size: 26.5px; }
@@ -163,4 +166,9 @@ div.jumbotron > p {
         width: 100%;
         padding: 2%;
     }
+
+    .row {
+        border: 1px solid red;
+    }
 }
+

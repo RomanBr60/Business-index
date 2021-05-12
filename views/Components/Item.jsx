@@ -41,7 +41,7 @@ export default function Item(props) {
                     </div>
                     <h1 className="text caption" style={{ fontSize: "medium", width: "100%" }}>{props.data.gsx$desc.$t + props.data.gsx$desc2.$t}</h1>
                     
-                    <div className="has-success has-feedback row" style={{ height: '46px' }}>
+                    <div className="row buttonRow" style={{ height: '46px' }}>
                         <a title="אתר" href={(props.data.gsx$website.$t == '') ? '' : props.data.gsx$website.$t} className="col-lg-3 col-md-3 col-xs-12 btn btn-social-icon btn-lg btn-facebook">
                             <span className="fa fa-fw fa-globe"></span>
                         </a>
