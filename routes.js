@@ -33,7 +33,12 @@ router.get('/Q', function(req, res, next) {
       val.ua = userAgent;
       return res.render('./Components/HP1', val);
     })
-    .catch(err => res.status(404).json(err))
+    .catch((err) => {
+      var error = { }
+      error.err1 = err[0];
+      error.err2 = err[1];
+      return res.status(404).json(error)
+    })
   
 });
 

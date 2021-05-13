@@ -129,6 +129,11 @@ hr {
 .btn-social-icon {
     text-align: center;
     margin: auto 5% auto 5%;
+    position: fixed;
+}
+
+.buttonRow {
+    border: 1px solid red;
 }
 
 .container {
@@ -148,7 +153,8 @@ div.jumbotron > p {
 
 @media screen and (max-width: 387px) {
     .btn-social-icon {
-        margin: auto 4% auto 4%;
+        position: fixed;
+        margin: auto 3% auto 3%;
     }  
 
     .buttonRow {
@@ -167,8 +173,8 @@ div.jumbotron > p {
         padding: 2%;
     }
 
-    .row {
-        border: 1px solid red;
+    .navbar-form {
+        width: 50%;
     }
 }
 

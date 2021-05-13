@@ -31,11 +31,13 @@ export default function nav() {
                 </ul>
                 </li>
             </ul>
-            <form className="navbar-form navbar-left">
-                <div className="form-group">
-                    <input type="text" className="form-control" placeholder="Search" />
+            <form class="navbar-form navbar-left" onSubmit={handleSubmit}>
+                <div className="input-group" style={{ direction: "ltr"}}>
+                    <input type="text" className="form-control" placeholder="חיפוש" name="חיפוש" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+                    <div className="input-group-btn">
+                        <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+                    </div>
                 </div>
-                <button type="submit" className="btn btn-default">Submit</button>
             </form>
             </div>
         </div>

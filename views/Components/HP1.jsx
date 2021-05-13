@@ -53,14 +53,22 @@ export default function HomePage(props) {
     const text = "ברוכים הבאים לפיילוט של אינדקס העסקים של נוף הגליל. כאן תוכלו למצוא מידע עדכני ומפורט ככל האפשר על העסקים השונים בנוף הגליל"
 
     useEffect(() => {
-        setList(soryByAtrr(props.businesses, "gsx$name"));
-        setTypes(soryByAtrr(props.types, "gsx$type"))
-        setIsLoaded(true)
+        if (props.err1 || props.err2) {
+            setIsLoaded (false);
+            setError1 (props.err1);
+            setError2 (props.err2);
+        }
+
+        else {
+            setList(soryByAtrr(props.businesses, "gsx$name"));
+            setTypes(soryByAtrr(props.types, "gsx$type"))
+            setIsLoaded(true)
+        }
     }, [])
 
 
     if (error1 || error2) {
-        return <div>Error: {error1.message } <br/> {error2.message} </div>;
+        return <div>Error: {error1.message + error2.message } </div>;
     }
 
     else if (!isLoaded) {
@@ -90,7 +98,36 @@ export default function HomePage(props) {
 
             <title>"אינדקס עסקים"</title>
             </Head>
-            <Nav></Nav>
+            <nav className="navbar navbar-inverse" style={{ textAlign: 'left' }}>
+            <div className="container-fluid">
+                <div className="navbar-header">
+                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span className="sr-only">Toggle navigation</span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                </button>
+                <a className="navbar-brand" href="#">Brand</a>
+                </div>
+
+                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul className="nav navbar-nav navbar-left">
+                        <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
+                        <li><a href="/Q">Home</a></li>
+                        <li className="dropdown"></li>
+                </ul>
+                <form className="navbar-form navbar-left" onSubmit={handleSubmit}>
+                    <div className="form-group input-group" style={{ direction: "ltr"}}>
+                        <input type="text" className="form-control" placeholder="חיפוש" name="חיפוש" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+                        <div className="input-group-btn">
+                            <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </nav>
+            
             <div className="container" style={{ padding: '0', marginTop: '50px', textAlign: 'right', direction: 'rtl' }}>
                 <div className="jumbotron" style={{ padding: '0', margin: '0', borderRadius: '0' }}>
                     <h1 className="title" id="title" style={{ textAlign: 'center', textDecoration: 'underline' }}>אינדקס עסקים</h1>
@@ -98,6 +135,8 @@ export default function HomePage(props) {
                 </div>
 
                 <div id="searchUI">
+                    {
+                    (1==0) ? 
                     <form onSubmit={handleSubmit}>
                     <div className="input-group" style={{ width: '45%', direction: "ltr"}}>
                             <input type="text" className="form-control" placeholder="חיפוש" name="חיפוש" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
@@ -105,8 +144,8 @@ export default function HomePage(props) {
                                 <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
                             </div>
                         </div>
-                    </form>
-             
+                    </form> : ''
+                    }
 
                     <div style={{ margin: "1% 0 -1% 0", padding: '0' }}>
                         חיפוש לפי <select onChange={(e) => setK(e.target.value)}>
