@@ -136,10 +136,6 @@ hr {
     border: 1px solid red;
 }
 
-.container {
-    border: 2px solid red;
-}
-
 .ItemRow, #searchUI {
     width: 99%;
     margin: 0 1% 0 1%;

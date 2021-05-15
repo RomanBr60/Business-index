@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route, useParams, useRouteMatch } from
 import { Document, Head, Main } from "@react-ssr/express";
 import List from './List';
 import Item from './Item';
-import Nav from './Nav';
 import "../../styles/style.css";
 
 
@@ -99,23 +98,7 @@ export default function HomePage(props) {
             <title>"אינדקס עסקים"</title>
             </Head>
             <nav className="navbar navbar-inverse" style={{ textAlign: 'left' }}>
-            <div className="container-fluid">
-                <div className="navbar-header">
-                <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span className="sr-only">Toggle navigation</span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                </button>
-                <a className="navbar-brand" href="#">Brand</a>
-                </div>
-
-                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul className="nav navbar-nav navbar-left">
-                        <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
-                        <li><a href="/Q">Home</a></li>
-                        <li className="dropdown"></li>
-                </ul>
+            <div className="container-fluid navbar-right">
                 <form className="navbar-form navbar-left" onSubmit={handleSubmit}>
                     <div className="form-group input-group" style={{ direction: "ltr"}}>
                         <input type="text" className="form-control" placeholder="חיפוש" name="חיפוש" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
@@ -124,7 +107,17 @@ export default function HomePage(props) {
                         </div>
                     </div>
                 </form>
+                <ul className="nav navbar-nav">
+                        <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
+                        <li><a href="/Q">Home</a></li>
+                        <li className="dropdown"></li>
+                </ul>
+                <div className="navbar-header">
+                    <a className="navbar-brand" href="/">
+                    <i class="fa fa-home active" style={{ border: 'none'}}></i>
+                    </a>
                 </div>
+
             </div>
             </nav>
             

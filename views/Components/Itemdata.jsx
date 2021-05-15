@@ -32,11 +32,22 @@ export default function Itemdata(props) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
         <title>{props.data.gsx$name.$t}</title>
       </Head>
+      <nav className="navbar navbar-inverse">
+          <div className="container-fluid navbar-right" style={{ direction: 'ltr'}}>
+              <ul className="nav navbar-nav">
+                      <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
+                      <li><a href="/">Home</a></li>
+              </ul>
+              <div className="navbar-header">
+                <a className="navbar-brand" href="/">
+                  <i class="fa fa-home active" style={{ border: 'none'}}></i>
+                </a>
+            </div>
+          </div>
+      </nav>
+
       <div className="container" style={{ padding: '0', textAlign: 'right', direction: 'rtl' }}>
-        <div>
-          
           <Item className="col-lg-offset-4 col-md-offset-4" data={props.data } ua={props.ua} isLinkable={false}/>
-        </div>
       </div>
     </React.Fragment>
   );

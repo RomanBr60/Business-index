@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
       val.businesses = filterKeysOfArrayOfObjects ('gsx$', value[0].feed.entry);
       val.types = filterKeysOfArrayOfObjects ('gsx$', value[1].feed.entry);
       val.ua = userAgent;
-      return res.render('./Components/HP1', val);
+      return res.render('./Components/HomePage', val);
     })
     .catch((err) => {
       var error = { }
