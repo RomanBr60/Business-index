@@ -2,12 +2,7 @@ var express = require('express');
 var router = express.Router();
 const fetch = require('node-fetch');
 
-router.get('/', (req, res, next) => {
-  var userAgent = req.headers['user-agent'];     // user-agent header from an HTTP request
-  res.render('./Components/HomePage', { ua: userAgent } );
-});
-
-router.get('/Q', function(req, res, next) {
+router.get('/', function(req, res, next) {
   var userAgent = req.headers['user-agent'];     // user-agent header from an HTTP request
 
   
