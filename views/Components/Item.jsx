@@ -16,7 +16,7 @@ export default function Item(props) {
             || props.ua.match(/iPod/i)
             || props.ua.match(/BlackBerry/i)
             || props.ua.match(/Windows Phone/i)
-        ) ? 'api' : 'web';
+        ) ? 'https://wa.me/' : 'https://web.whatsapp.com/send?phone=';
     }
 
     const fullAddress = () => {
@@ -26,7 +26,7 @@ export default function Item(props) {
     //console.log(props.data)
 
     return (
-        <div className={"col-lg-4 col-md-4 col-xs-12" + (props.className == '' ? '' : props.className) }>
+        <div className={"col-lg-4 col-md-4 col-sm-12 col-xs-12" + (props.className == '' ? '' : props.className) }>
             <div className="panel panel-info">
                 <div className="panel-heading">
                     {
@@ -41,17 +41,17 @@ export default function Item(props) {
                     </div>
                     <h1 className="text caption" style={{ fontSize: "medium", width: "100%" }}>{props.data.gsx$desc.$t + props.data.gsx$desc2.$t}</h1>
                     
-                    <div className="buttonRow" style={{ height: '46px' }}>
-                        <a title="אתר" href={(props.data.gsx$website.$t == '') ? '' : props.data.gsx$website.$t} className="col-lg-3 col-md-3 col-xs-12 btn btn-social-icon btn-lg btn-facebook">
+                    <div className="buttonRow row" style={{ height: '46px' }}>
+                        <a title="אתר" href={(props.data.gsx$website.$t == '') ? '' : props.data.gsx$website.$t} className="col-lg-3 col-md-3 col-xs-3 btn btn-social-icon btn-lg btn-facebook">
                             <span className="fa fa-fw fa-globe"></span>
                         </a>
-                        <a title="דף פייסבוק" href={props.data.gsx$facebook.$t == '' ? '' : props.data.gsx$facebook.$t} className="col-lg-3 col-md-3 col-xs-12 btn btn-social-icon btn-lg btn-facebook">
+                        <a title="דף פייסבוק" href={props.data.gsx$facebook.$t == '' ? '' : props.data.gsx$facebook.$t} className="col-lg-3 col-md-3 col-xs-3 btn btn-social-icon btn-lg btn-facebook">
                             <span className="fa fa-fw fa-facebook"></span>
                         </a>
-                        <a title="דף אינסטגרם" href={props.data.gsx$instagram.$t == '' ? '' : props.data.gsx$instagram.$t} className="col-lg-3 col-md-3 col-xs-12 btn btn-social-icon btn-lg btn-instagram">
+                        <a title="דף אינסטגרם" href={props.data.gsx$instagram.$t == '' ? '' : props.data.gsx$instagram.$t} className="col-lg-3 col-md-3 col-xs-3 btn btn-social-icon btn-lg btn-instagram">
                             <span className="fa fa-fw fa-instagram"></span>
                         </a>
-                        <a title="ווטסאפ" href={props.data.gsx$whatsapp.$t == '' ? '' : "https://" + whatsappURL() + ".whatsapp.com/send?phone=+972" + props.data.gsx$whatsapp.$t} className="col-lg-3 col-md-3 col-xs-12 btn btn-social-icon btn-lg btn-instagram" style={{ backgroundColor: "#06d755" }}>
+                        <a title="ווטסאפ" href={props.data.gsx$whatsapp.$t == '' ? '' : whatsappURL() + "+972" + props.data.gsx$whatsapp.$t} className="col-lg-3 col-md-3 col-xs-3 btn btn-social-icon btn-lg btn-instagram" style={{ backgroundColor: "#06d755" }}>
                             <span className="fa fa-fw fa-whatsapp"></span>
                         </a>
                     </div>

@@ -1,5 +1,3 @@
-@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 * {
     margin: 0;
@@ -128,8 +126,7 @@ hr {
 
 .btn-social-icon {
     text-align: center;
-    margin: auto 5% auto 5%;
-    position: fixed;
+    margin: auto;
 }
 
 .buttonRow {
@@ -141,6 +138,20 @@ hr {
     margin: 0 1% 0 1%;
 }
 
+[class*="col-"] {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  [class*="col-"]:first-child {
+    padding-left: 0px;
+  }
+      
+
+.ItemRow {
+    direction: rtl;
+    text-align: right;
+}
 
 div.jumbotron > p {
     width: 60%;
@@ -153,24 +164,20 @@ div.jumbotron > p {
         margin: auto 3% auto 3%;
     }  
 
-    .buttonRow {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
 }
 
 @media screen and (max-width: 700px) {
     .pageTitle { font-size: 200%; }
     .text { height: 120px; }    
     .title { font-size: 26.5px; }
-    
+
+    .navbar-form {
+        width: 90%;
+    }
+
     div.jumbotron > p {
         width: 100%;
         padding: 2%;
-    }
-
-    .navbar-form {
-        width: 50%;
     }
 }
 

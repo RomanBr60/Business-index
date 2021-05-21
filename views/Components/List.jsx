@@ -12,11 +12,7 @@ export default function List(props) {
                   <div className="page">
                       <h1 className="pageTitle page-head" style={{marginRight: "1.5%",   textDecoration: "underline"}}>{attr}</h1>
                       {
-                        props.filterFunc(attr, props.list).map((item, i) => {
-                            return (
-                                <Item key={i} className="Item" data={item} ua={props.ua}></Item>
-                            )
-                        })
+                        props.filterFunc(attr, props.list).map((item, i) => <Item key={i} className="Item" data={item} ua={props.ua}></Item>)
                       }
                   </div> : ''
                 }

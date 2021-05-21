@@ -107,21 +107,24 @@ export default function HomePage(props) {
                         </div>
                     </div>
                 </form>
+                {
+                (1==2) ?
                 <ul className="nav navbar-nav">
                         <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
                         <li><a href="/Q">Home</a></li>
                         <li className="dropdown"></li>
-                </ul>
+                </ul> : ''
+                }
                 <div className="navbar-header">
                     <a className="navbar-brand" href="/">
-                    <i class="fa fa-home active" style={{ border: 'none'}}></i>
+                    <i className="fa fa-home active" style={{ border: 'none'}}></i>
                     </a>
                 </div>
 
             </div>
             </nav>
             
-            <div className="container" style={{ padding: '0', marginTop: '50px', textAlign: 'right', direction: 'rtl' }}>
+            <div className="container" style={{ padding: '0', marginTop: '1%', textAlign: 'right', direction: 'rtl' }}>
                 <div className="jumbotron" style={{ padding: '0', margin: '0', borderRadius: '0' }}>
                     <h1 className="title" id="title" style={{ textAlign: 'center', textDecoration: 'underline' }}>אינדקס עסקים</h1>
                     <p>{text}</p>
@@ -154,7 +157,7 @@ export default function HomePage(props) {
                     (k == 0) ? 
                         <div className="row ItemRow">
                         {
-                            list.map((item, i) => { return <Item className="Item" key={i} data={item} ua={props.ua} isLinkable={true}></Item> })
+                            list.map((item, i) => <Item key={i} data={item} ua={props.ua} isLinkable={true}></Item> )
                         }</div> :
                         
                         (k == 1) ? <List key={0} list={list} filterBy={("אבגדהוזחטיכלמנסעפצקרשת").split('')} filterFunc={filterAlphabiticaly} ua={props.ua}></List> :
