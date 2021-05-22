@@ -127,16 +127,9 @@ hr {
     border: 1px solid red;
 }
 
-.buttonRow:first-child {
-    float: left;
-}
-
-.buttonRow:last-child{
-    float: right;
-}
-
-.buttonRow > a{
-    margin-right: 10%;
+.btn-social-icon {
+    margin: 0 5.3%; 
+    position: fixed;   
 }
 
 .ItemRow > div {
