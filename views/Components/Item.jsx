@@ -16,7 +16,7 @@ export default function Item(props) {
             || props.ua.match(/iPod/i)
             || props.ua.match(/BlackBerry/i)
             || props.ua.match(/Windows Phone/i)
-        ) ? 'https://wa.me/' : 'https://web.whatsapp.com/send?phone=';
+        ) ? 'whatsapp://' : 'https://web.whatsapp.com/';
     }
 
     const fullAddress = () => {
@@ -51,8 +51,8 @@ export default function Item(props) {
                         <a title="דף אינסטגרם" href={props.data.gsx$instagram.$t == '' ? '' : props.data.gsx$instagram.$t} className="col-lg-3 col-md-3 col-xs-3 btn btn-social-icon btn-lg btn-instagram">
                             <span className="fa fa-fw fa-instagram"></span>
                         </a>
-                        <a title="ווטסאפ" href={props.data.gsx$whatsapp.$t == '' ? '' : whatsappURL() + "+972" + props.data.gsx$whatsapp.$t} className="col-lg-3 col-md-3 col-xs-3 btn btn-social-icon btn-lg btn-instagram" style={{ backgroundColor: "#06d755" }}>
-                            <span className="fa fa-fw fa-whatsapp"></span>
+                        <a title="ווטסאפ" href={props.data.gsx$whatsapp.$t == '' ? '' : whatsappURL() + "send?phone=+972" + props.data.gsx$whatsapp.$t} className="col-lg-3 col-md-3 col-xs-3 btn btn-social-icon btn-lg btn-instagram" style={{ backgroundColor: "#06d755" }}>
+                             <span className="fa fa-fw fa-whatsapp"></span>
                         </a>
                     </div>
 
