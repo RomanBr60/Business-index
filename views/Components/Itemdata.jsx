@@ -46,7 +46,7 @@ export default function Itemdata(props) {
           </div>
       </nav>
 
-      <div className="container" style={{ padding: '0', textAlign: 'right', direction: 'rtl' }}>
+      <div className="container" style={{ marginTop: '-2%', textAlign: 'right', direction: 'rtl', border: '1px solid red' }}>
           <Item className="col-lg-offset-4 col-md-offset-4" data={props.data } ua={props.ua} isLinkable={false}/>
       </div>
     </React.Fragment>

@@ -46,7 +46,7 @@ export default function HomePage(props) {
         return arr;
     }
 
-    const filterAlphabiticaly = (l, arr) => { return arr.filter(item => item.gsx$name.$t.charAt(0) === l) }
+    const filterAlphabeticaly = (l, arr) => { return arr.filter(item => item.gsx$name.$t.charAt(0) === l) }
     const filterByType = (type, arr) => { return arr.filter(item => item.gsx$type.$t === type) }
 
     const text = "ברוכים הבאים לפיילוט של אינדקס העסקים של נוף הגליל. כאן תוכלו למצוא מידע עדכני ומפורט ככל האפשר על העסקים השונים בנוף הגליל"
@@ -124,44 +124,25 @@ export default function HomePage(props) {
             </div>
             </nav>
             
-            <div className="container" style={{ padding: '0', marginTop: '1%', textAlign: 'right', direction: 'rtl' }}>
+            <div className="container" style={{ marginTop: '0', paddingTop: '0', textAlign: 'right', direction: 'rtl' }}>
                 <div className="jumbotron" style={{ padding: '0', margin: '0', borderRadius: '0' }}>
                     <h1 className="title" id="title" style={{ textAlign: 'center', textDecoration: 'underline' }}>אינדקס עסקים</h1>
                     <p>{text}</p>
                 </div>
 
                 <div id="searchUI">
-                    {
-                    (1==0) ? 
-                    <form onSubmit={handleSubmit}>
-                    <div className="input-group" style={{ width: '45%', direction: "ltr"}}>
-                            <input type="text" className="form-control" placeholder="חיפוש" name="חיפוש" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
-                            <div className="input-group-btn">
-                                <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
-                            </div>
-                        </div>
-                    </form> : ''
-                    }
-
-                    <div style={{ margin: "1% 0 -1% 0", padding: '0' }}>
-                        חיפוש לפי <select onChange={(e) => setK(e.target.value)}>
-                            <option value="0">הצג את כל העסקים ביחד</option>
-                            <option value="1">לפי סדר אלפבתי</option>
-                            <option value="2">לפי קטגוריות</option>
-                        </select>
-                    </div>
+                    חיפוש לפי <select onChange={(e) => setK(e.target.value)}>
+                        <option value="0">הצג את כל העסקים ביחד</option>
+                        <option value="1">לפי סדר אלפבתי</option>
+                        <option value="2">לפי קטגוריות</option>
+                    </select>
                 </div>
                 <br />
                 {
-                    (list.length == 0) ? <h1 className="pageTitle">לא נמצאו עסקים</h1> :
-                    (k == 0) ? 
-                        <div className="row ItemRow">
-                        {
-                            list.map((item, i) => <Item key={i} data={item} ua={props.ua} isLinkable={true}></Item> )
-                        }</div> :
-                        
-                        (k == 1) ? <List key={0} list={list} filterBy={("אבגדהוזחטיכלמנסעפצקרשת").split('')} filterFunc={filterAlphabiticaly} ua={props.ua}></List> :
-                            (k == 2) ? <List key={1} list={list} filterBy={types.map(t => t.gsx$type.$t)} filterFunc={filterByType} ua={props.ua}></List> : ''
+                    (list.length == 0) ? <h1 className="pageTitle">לא נמצאו עסקים</h1> : 
+                        (k == 0) ? <List key={0} list={list} filterBy={undefined} ua={props.ua}></List> :
+                            (k == 1) ? <List key={1} list={list} filterBy={("אבגדהוזחטיכלמנסעפצקרשת").split('')} filterFunc={filterAlphabeticaly} ua={props.ua}></List> :
+                                (k == 2) ? <List key={2} list={list} filterBy={types.map(t => t.gsx$type.$t)} filterFunc={filterByType} ua={props.ua}></List> : ''
                 }
             </div>
         </React.Fragment>

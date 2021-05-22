@@ -4,26 +4,24 @@ import "../../styles/style.css";
 
 export default function List(props) {
 
-    const UI = (attr) => {
-        return (
+    const UI = (attr) => 
+        (props.filterFunc(attr, props.list).length != 0) ?
             <div className="row ItemRow">
+                <h1 className="pageTitle" style={{margin: "1% 1% auto auto", textDecoration: "underline"}}>{attr}</h1>
                 {
-                  (props.filterFunc(attr, props.list).length != 0) ? 
-                  <div className="page">
-                      <h1 className="pageTitle page-head" style={{marginRight: "1.5%",   textDecoration: "underline"}}>{attr}</h1>
-                      {
-                        props.filterFunc(attr, props.list).map((item, i) => <Item key={i} className="Item" data={item} ua={props.ua}></Item>)
-                      }
-                  </div> : ''
+                    props.filterFunc(attr, props.list).map((item, i) => <Item key={i} data={item} ua={props.ua} isLinkable={false}></Item>)
                 }
-            </div>
-        )
-    }
+            </div> : '';
 
     return (
         <div>
             {
-               props.filterBy.map(attr => UI(attr))
+               (props.filterBy == undefined) ?             
+               <div className="row ItemRow">
+                {
+                props.list.map((item, i) => <Item key={i} data={item} ua={props.ua} isLinkable={true}></Item> )
+                } 
+               </div> : props.filterBy.map(attr => UI(attr))
             }
         </div>
     )

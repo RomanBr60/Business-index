@@ -56,7 +56,7 @@ export default function Item(props) {
                         </a>
                     </div>
 
-                    <div className="properties" style={{ direction: "ltr", maxHeight: '260px', minHeight:'200px', height: '260px', backgroundColor: 'none' }}>
+                    <div className="properties" style={{ direction: "ltr", maxHeight: '260px', minHeight:'200px', height: '260px' }}>
                         <hr />
                         <a title="טלפון" href={props.data.gsx$telephone.$t == '' ? '' : "tel:0" + props.data.gsx$telephone.$t.split(' ')[0]}>
                             <span>{(props.data.gsx$telephone.$t == '') ? '' : "0" + props.data.gsx$telephone.$t}</span><i className="fa fa-fw fa-phone"></i></a><hr />
