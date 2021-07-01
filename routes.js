@@ -37,6 +37,43 @@ router.get('/', function(req, res, next) {
   
 });
 
+router.post('/getBusinessesBySearch', function(req, res, next) {
+  let searchText = req.body.searchText;
+  if (searchText.trim() == '') res.json ([]);
+  else {
+  let href = "https://spreadsheets.google.com/feeds/list/18GAUw1YmWC2pcCug6jqU_atcIn51fQSrDLNmcuqdoP8/od6/public/values?alt=json"
+  fetch(href)
+      .then(response => response.json())
+      .then(data => { 
+        let arr = data.feed.entry;
+        arr = filterKeysOfArrayOfObjects ('gsx$', arr);
+        arr = filterArrayOfObjects (searchText, arr);
+        res.json (arr)
+      })
+	    .catch(err => res.status(404).json(err))
+  }    
+
+});
+
+
+router.get('/a', function(req, res) {
+  let href = "https://spreadsheets.google.com/feeds/list/18GAUw1YmWC2pcCug6jqU_atcIn51fQSrDLNmcuqdoP8/od6/public/values?alt=json"
+  fetch(href)
+      .then(response => response.json())
+        .then(data => {
+        let arr = data.feed.entry;
+        //arr = filterKeysOfArrayOfObjects1 (['name', 'address', 'desc', 'desc2'], arr);
+        arr = filterKeysOfArrayOfObjects ('gsx$', arr);
+        /*arr.filter(obj => {
+          console.log(filterKeysOfArrayOfObjects1 (['name', 'address', 'desc', 'desc2'], obj));
+          return obj;
+        });*/
+
+        res.json (arr);
+      })
+      .catch(err => res.status(404).json(err))
+
+});
 
 router.get('/:id', function(req, res) {
   var userAgent = req.headers['user-agent'];
@@ -53,8 +90,7 @@ router.get('/:id', function(req, res) {
 
 });
 
-
-router.post('/getTypes', function(req, res, next) {
+/*router.post('/getTypes', function(req, res, next) {
   let href = "https://spreadsheets.google.com/feeds/list/18GAUw1YmWC2pcCug6jqU_atcIn51fQSrDLNmcuqdoP8/oye0vyq/public/values?alt=json"
   fetch(href)
       .then(response => response.json())
@@ -68,22 +104,8 @@ router.post('/getBusinesses', function(req, res, next) {
       .then(response => response.json())
       .then(data => { res.json (data) })
 	    .catch(err => res.status(404).json(err))
-});
+});*/
 
-router.post('/getBusinessesBySearch', function(req, res, next) {
-  let searchText = req.body.searchText;
-  let href = "https://spreadsheets.google.com/feeds/list/18GAUw1YmWC2pcCug6jqU_atcIn51fQSrDLNmcuqdoP8/od6/public/values?alt=json"
-  fetch(href)
-      .then(response => response.json())
-      .then(data => { 
-        let arr = data.feed.entry;
-        arr = filterKeysOfArrayOfObjects ('gsx$', arr);
-        arr = filterArrayOfObjects (searchText, arr);
-        res.json (arr)
-      })
-	    .catch(err => res.status(404).json(err))
-
-});
 
 
 function filterKeys(prefix, obj) {
@@ -95,14 +117,19 @@ function filterKeys(prefix, obj) {
   }, {});
 }
 
-/*function filterKeys1(filterdeKeys, obj) {
+
+function filterKeys1(suffix, obj) {
   return Object.entries(obj).reduce((res, [key, value]) => {
-      if (!filterdeKeys.includes(filterdeKeys)) {
+      if (suffix.some (e => key.endsWith(e)) ) {
           res[key] = value;
       }
       return res;
   }, {});
-}*/
+}
+
+function filterKeysOfArrayOfObjects1 (suffix, arr) {
+  return arr.map (e => filterKeys1 (suffix, e));
+}
 
 function filterKeysOfArrayOfObjects (prefix, arr) {
   return arr.map (e => filterKeys (prefix, e));
@@ -110,8 +137,7 @@ function filterKeysOfArrayOfObjects (prefix, arr) {
 
 function filterArrayOfObjects (tags, arr) {
   return arr.filter(obj => {
-    //let res = Object.values(obj).some (s => s.includes(tags))
-    return Object.values(obj).some (e => e.$t.includes (tags)) 
+    return Object.values(filterKeys1 (['name', 'desc', 'desc2'], obj)).some (e => e.$t.includes (tags)) 
   })
 }
 

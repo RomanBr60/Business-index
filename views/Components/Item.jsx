@@ -23,10 +23,12 @@ export default function Item(props) {
         return props.data.gsx$address.$t + ", " + props.data.gsx$city.$t;
     }
 
-    //console.log(props.data)
-
+    const setBg = () => {
+        return "#" + Math.floor(Math.random()*16777215).toString(16);
+    }
+      
     return (
-        <div className={"col-lg-4 col-md-4 col-sm-12 col-xs-12" + (props.className == '' ? '' : props.className) }>
+        <div className={(props.className == '' ? '' : props.className)}>
             <div className="panel panel-info">
                 <div className="panel-heading">
                     {
@@ -41,38 +43,45 @@ export default function Item(props) {
                     </div>
                     <h1 className="text caption" style={{ fontSize: "medium", width: "100%" }}>{props.data.gsx$desc.$t + props.data.gsx$desc2.$t}</h1>
                     
-                    <div className="buttonRow row" style={{ height: '46px' }}>
-                        <a title="אתר" href={(props.data.gsx$website.$t == '') ? '' : props.data.gsx$website.$t} className="col-lg-3 col-md-3 col-xs-3 btn btn-social-icon btn-lg btn-facebook">
-                            <span className="fa fa-fw fa-globe"></span>
-                        </a>
-                        <a title="דף פייסבוק" href={props.data.gsx$facebook.$t == '' ? '' : props.data.gsx$facebook.$t} className="col-lg-3 col-md-3 col-xs-3 btn btn-social-icon btn-lg btn-facebook">
-                            <span className="fa fa-fw fa-facebook"></span>
-                        </a>
-                        <a title="דף אינסטגרם" href={props.data.gsx$instagram.$t == '' ? '' : props.data.gsx$instagram.$t} className="col-lg-3 col-md-3 col-xs-3 btn btn-social-icon btn-lg btn-instagram">
-                            <span className="fa fa-fw fa-instagram"></span>
-                        </a>
-                        <a title="ווטסאפ" href={props.data.gsx$whatsapp.$t == '' ? '' : whatsappURL() + "send?phone=+972" + props.data.gsx$whatsapp.$t} className="col-lg-3 col-md-3 col-xs-3 btn btn-social-icon btn-lg btn-instagram" style={{ backgroundColor: "#06d755" }}>
-                             <span className="fa fa-fw fa-whatsapp"></span>
-                        </a>
+                    <div className="row" style={{ height: '46px' }}>
+                        <div className="buttonDiv col-lg-3 col-md-3 col-xs-3">
+                            <a title="אתר" href={(props.data.gsx$website.$t == '') ? 'javascript:void(0)' : props.data.gsx$website.$t} className="btn btn-lg btn-social-icon btn-facebook">
+                                <span className="fa fa-fw fa-globe"></span>
+                            </a>
+                        </div>
+                        <div className="buttonDiv col-lg-3 col-md-3 col-xs-3">
+                            <a title="דף פייסבוק" href={props.data.gsx$facebook.$t == '' ? 'javascript:void(0)' : props.data.gsx$facebook.$t} className="btn btn-lg btn-social-icon btn-facebook">
+                                <span className="fa fa-fw fa-facebook"></span>
+                            </a>
+                        </div>
+                        <div className="buttonDiv col-lg-3 col-md-3 col-xs-3">
+                            <a title="דף אינסטגרם" href={props.data.gsx$instagram.$t == '' ? 'javascript:void(0)' : props.data.gsx$instagram.$t} className="btn btn-lg btn-social-icon btn-instagram">
+                                <span className="fa fa-fw fa-instagram"></span>
+                            </a>
+                        </div>
+                        <div className="buttonDiv col-lg-3 col-md-3 col-xs-3">
+                            <a title="ווטסאפ" href={props.data.gsx$whatsapp.$t == '' ? 'javascript:void(0)' : whatsappURL() + "send?phone=+972" + props.data.gsx$whatsapp.$t} className="btn btn-lg btn-social-icon btn-instagram" style={{ backgroundColor: "#06d755" }}>
+                                <span className="fa fa-fw fa-whatsapp"></span>
+                            </a>
+                        </div>
                     </div>
-
+                    <hr />
                     <div className="properties" style={{ direction: "ltr", maxHeight: '260px', minHeight:'200px', height: '260px' }}>
-                        <hr />
-                        <a title="טלפון" href={props.data.gsx$telephone.$t == '' ? '' : "tel:0" + props.data.gsx$telephone.$t.split(' ')[0]}>
+                        <a title="טלפון" href={props.data.gsx$telephone.$t == '' ? 'javascript:void(0)' : "tel:0" + props.data.gsx$telephone.$t.split(' ')[0]}>
                             <span>{(props.data.gsx$telephone.$t == '') ? '' : "0" + props.data.gsx$telephone.$t}</span><i className="fa fa-fw fa-phone"></i></a><hr />
 
-                        <a title="פלאפון" href={props.data.gsx$mobilephone.$t == '' ? '' : "tel:0" + props.data.gsx$mobilephone.$t.split(' ')[0]}>
+                        <a title="פלאפון" href={props.data.gsx$mobilephone.$t == '' ? 'javascript:void(0)' : "tel:0" + props.data.gsx$mobilephone.$t.split(' ')[0]}>
                             <span>{(props.data.gsx$mobilephone.$t == '') ? '' : "0" + props.data.gsx$mobilephone.$t}</span><i className="fa fa-fw fa-mobile"></i></a><hr />
 
-                        <a title="פלאפון" href={props.data.gsx$mobilephone2.$t == '' ? '' : "tel:0" + props.data.gsx$mobilephone2.$t.split(' ')[0]}>
+                        <a title="פלאפון" href={props.data.gsx$mobilephone2.$t == '' ? 'javascript:void(0)' : "tel:0" + props.data.gsx$mobilephone2.$t.split(' ')[0]}>
                             <span>{(props.data.gsx$mobilephone2.$t == '') ? '' : "0" + props.data.gsx$mobilephone2.$t}</span><i className="fa fa-fw fa-mobile"></i></a><hr />
 
 
-                        <a title="כתובת" href={(props.data.gsx$address.$t == '') ? '' : 'http://maps.google.com/maps?q=' + encodeURIComponent(fullAddress().trim().replace(/\r?\n/, ',').replace(/\s+/g, ' ')) }><span>{(props.data.gsx$address.$t == '') ? '' : fullAddress() }</span><i className="fa fa-fw fa-map-marker"></i></a><hr />
-                        <a title="אימייל" href={props.data.gsx$email.$t == '' ? '' : "mailto:" + props.data.gsx$email.$t}><span>{props.data.gsx$email.$t == '' ? '' : props.data.gsx$email.$t}</span><i className="fa fa-fw fa-envelope-o"></i></a><hr />
+                        <a title="כתובת" href={(props.data.gsx$address.$t == '') ? 'javascript:void(0)' : 'http://maps.google.com/maps?q=' + encodeURIComponent(fullAddress().trim().replace(/\r?\n/, ',').replace(/\s+/g, ' ')) }><span>{(props.data.gsx$address.$t == '') ? '' : fullAddress() }</span><i className="fa fa-fw fa-map-marker"></i></a><hr />
+                        <a title="אימייל" href={props.data.gsx$email.$t == '' ? 'javascript:void(0)' : "mailto:" + props.data.gsx$email.$t}><span>{props.data.gsx$email.$t == '' ? '' : props.data.gsx$email.$t}</span><i className="fa fa-fw fa-envelope-o"></i></a><hr />
 
                         {
-                            props.data.gsx$time.$t.split("@@").map((e, i) => <a key={i} className="time" href="" title="שעות פעילות"><span style={{ textAlign: 'left' }}>{e}</span><i className="fa fa-fw fa-clock-o"></i><hr /></a>)
+                            props.data.gsx$time.$t.split("@@").map((e, i) => <a key={i} className="time" href="javascript:void(0)" title="שעות פעילות"><span style={{ textAlign: 'left' }}>{e}</span><i className="fa fa-fw fa-clock-o"></i><hr /></a>)
                         }
                     </div>
 

@@ -13,6 +13,9 @@
     text-align: right; 
     letter-spacing: 1px;			
     direction: rtl;
+
+    -moz-user-select: none; 
+    user-select: none;
 }
 
 body{
@@ -24,12 +27,13 @@ body{
     font-weight: 100;
     color: #777;
 }
-
 /*.App > * {
     background-color: #282c34;
 }*/
 
 /*-----------------------------------------------------------------*/
+/*.container-fluid .navbar-right { direction: ltr; }*/
+.jumbotron {  margin: 4.5% 0 0 0 }
 
 .panel { 
     /*box-shadow: 5px 10px 15px #666666;*/
@@ -122,14 +126,10 @@ hr {
     text-decoration: none;
 }
 
-.ItemRow, .buttonRow {
-    margin: auto;
-    border: 1px solid red;
-}
-
-.btn-social-icon {
-    margin: 0 5.3%; 
-    position: fixed;   
+.row > .buttonDiv {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .ItemRow > div {
@@ -141,15 +141,9 @@ hr {
 }
 
 
-@media screen and (max-width: 387px) {
-    .btn-social-icon {
-        position: fixed;
-        margin: auto 3% auto 3%;
-    }  
-
-}
-
 @media screen and (max-width: 700px) {
+    
+    .jumbotron { margin: 21% 0 0 0 }
 
     .ItemRow > div {
         float: none;
@@ -160,11 +154,12 @@ hr {
     }
         
     .pageTitle { font-size: 200%; }
+    .searchText { font-size: 150%; }
     .text { height: 120px; }    
     .title { font-size: 30px; margin-bottom: 2%;}
 
-    .navbar-form {
-        width: 90%;
-    }
+    .navbar-form { width: 80%; }
 }
 
+/*/////////////////////////////////////////////////////////////////////////////*/
+.btn:focus, select:focus { outline: none; }
